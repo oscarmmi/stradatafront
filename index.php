@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Stradata Front</title>
-
+        <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
         <script src="librerias/js/jquery-3.3.1.js"></script>
         <script src="librerias/js/bootstrap.min.js"></script>
@@ -65,24 +65,42 @@
                                     &nbsp;
                                 </div>  
                                 <div class="col-lg-4 margensuperior">
-                                    <input type="text" class="form-control usuario" 
-                                        id="usuario_numerodocumento" aria-describedby="basic-addon3"
+                                    <input type="text" class="form-control" 
+                                        id="nombrecompleto" 
                                         placeholder="Ej: Alejandro Hernandez">
                                 </div>  
                                 <div class="col-lg-4 margensuperior">
                                     <input type="text" class="form-control usuario" 
-                                        id="usuario_numerodocumento" aria-describedby="basic-addon3"
+                                        id="porcentajecoincidencia" 
+                                        oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
                                         placeholder="Ej: 95">
                                 </div>  
                                 <div class="col-lg-4 margensuperior">
                                     <button id="btnBuscar" class="btn btn-primary">Buscar</button>
-                                    <button id="btnExportar" class="btn btn-info">Exportar</button>
+                                    <button id="btnExportar" class="btn btn-info hidden">Exportar</button>
                                 </div>                                
-                            </div>                            
+                            </div>   
+
+                            
+                            <div id="graficaResultados" class="row margensuperior">
+                                <div  class="col-lg-12">
+                                    <h4 class="text-success">
+                                        Resultados
+                                    </h4>
+                                </div>
+                                <div  class="col-lg-12 margensuperior">
+                                    <table id="tablaResultados" class="table table-bordered table-striped display"></table>
+                                </div>
+                            </div>
+                            
+
                         </div>
                     </div>
+
+                    
                 </div>
             </div>
         </div>    
+          
     </body>
 </html>
