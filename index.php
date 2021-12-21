@@ -49,7 +49,6 @@
                             <h4 class="panel-title">Buscador</h4>
                         </div>
                         <div class="panel-body">
-                            <input type="hidden" id="usuario_idusuario" value="1">
                             <div class="row top-buffer">
                                 <div class="col-lg-4">
                                     <span class="h5" style="cursor:help;font-weight: bold;" title="Nombres y Apellidos">
@@ -66,12 +65,12 @@
                                 </div>  
                                 <div class="col-lg-4 margensuperior">
                                     <input type="text" class="form-control" 
-                                        id="nombrecompleto" 
+                                        id="nombre_buscado" 
                                         placeholder="Ej: Alejandro Hernandez">
                                 </div>  
                                 <div class="col-lg-4 margensuperior">
-                                    <input type="text" class="form-control usuario" 
-                                        id="porcentajecoincidencia" 
+                                    <input type="text" class="form-control" 
+                                        id="porcentaje_buscado" 
                                         oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
                                         placeholder="Ej: 95">
                                 </div>  
