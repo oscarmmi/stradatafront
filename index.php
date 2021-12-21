@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
     <head>
         <meta charset="UTF-8">
@@ -43,61 +43,160 @@
     <body class="container-fluid">
         <div class="row margensuperior">
             <div class="col-lg-12">
-                <div class="panel-group">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">Buscador</h4>
-                        </div>
-                        <div class="panel-body">
-                            <div class="row top-buffer">
-                                <div class="col-lg-4">
-                                    <span class="h5" style="cursor:help;font-weight: bold;" title="Nombres y Apellidos">
-                                        Nombres y Apellidos
-                                    </span>
-                                </div>
-                                <div class="col-lg-4">
-                                    <span class="h5" style="cursor:help;font-weight: bold;" title="Porcentaje coincidencia">
-                                        Porcentaje coincidencia
-                                    </span>
-                                </div>
-                                <div class="col-lg-4">
-                                    &nbsp;
-                                </div>  
-                                <div class="col-lg-4 margensuperior">
-                                    <input type="text" class="form-control" 
-                                        id="nombre_buscado" 
-                                        placeholder="Ej: Alejandro Hernandez">
-                                </div>  
-                                <div class="col-lg-4 margensuperior">
-                                    <input type="text" class="form-control" 
-                                        id="porcentaje_buscado" 
-                                        oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
-                                        placeholder="Ej: 95">
-                                </div>  
-                                <div class="col-lg-4 margensuperior">
-                                    <button id="btnBuscar" class="btn btn-primary">Buscar</button>
-                                    <button id="btnExportar" class="btn btn-info hidden">Exportar</button>
-                                </div>                                
-                            </div>   
 
-                            
-                            <div id="graficaResultados" class="row margensuperior">
-                                <div  class="col-lg-12">
-                                    <h4 class="text-success">
-                                        Resultados
-                                    </h4>
-                                </div>
-                                <div  class="col-lg-12 margensuperior">
-                                    <table id="tablaResultados" class="table table-bordered table-striped display"></table>
-                                </div>
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a data-toggle="tab" href="#buscador">
+                            Buscador
+                        </a>
+                    </li>
+                    <li>
+                        <a data-toggle="tab" href="#historico">
+                            Historico
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <div id="buscador" class="tab-pane fade in active">
+                        <div class="row" style="margin-top:50px;">
+                            <div class="col-lg-4">
+                                <span class="h5" style="cursor:help;font-weight: bold;" title="Nombres y Apellidos">
+                                    Nombres y Apellidos
+                                </span>
                             </div>
-                            
+                            <div class="col-lg-4">
+                                <span class="h5" style="cursor:help;font-weight: bold;" title="Porcentaje coincidencia">
+                                    Porcentaje coincidencia
+                                </span>
+                            </div>
+                            <div class="col-lg-4">
+                                &nbsp;
+                            </div>  
+                            <div class="col-lg-4 margensuperior">
+                                <input type="text" class="form-control" 
+                                    id="nombre_buscado" 
+                                    placeholder="Ej: Alejandro Hernandez">
+                            </div>  
+                            <div class="col-lg-4 margensuperior">
+                                <input type="text" class="form-control" 
+                                    id="porcentaje_buscado" 
+                                    oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
+                                    placeholder="Ej: 95">
+                            </div>  
+                            <div class="col-lg-4 margensuperior">
+                                <button id="btnBuscar" class="btn btn-primary">Buscar</button>
+                                <button id="btnExportar" class="btn btn-info hidden">Exportar</button>
+                            </div>                                
+                        </div>   
 
+                        
+                        <div id="graficaResultados" class="row margensuperior">
+                            <div  class="col-lg-12">
+                                <h4 class="text-success">
+                                    Resultados
+                                </h4>
+                            </div>
+                            <div  class="col-lg-12">
+                                <h5>
+                                    Esta consulta y sus resultados fueron almacenadas con el identificador unico (Uuid) # 
+                                    <span id="texto_uuid" style="cursor:pointer;" 
+                                        class="text-primary h4"></span>
+                                </h5>
+                            </div>
+                            <div  class="col-lg-12 margensuperior">
+                                <table id="tablaResultados" class="table table-bordered table-striped display"></table>
+                            </div>
                         </div>
                     </div>
+                    <div id="historico" class="tab-pane fade">
+                        <div class="row" style="margin-top:50px;">
+                            <div class="col-lg-4">
+                                <span class="h5" style="cursor:help;font-weight: bold;" title="Identificador Único(Uuid) del historico de las consultas realizadas">
+                                    Uuid
+                                </span>
+                            </div>
+                            <div class="col-lg-8">
+                                &nbsp;
+                            </div>  
+                            <div class="col-lg-4 margensuperior">
+                                <input type="text" class="form-control" 
+                                    id="uuid" 
+                                    oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
+                                    placeholder="Ej: Digite el uuid de la consulta">
+                            </div>  
+                            <div class="col-lg-4 margensuperior">
+                                <button id="btnBuscarUuid" class="btn btn-primary">Buscar</button>                                
+                            </div>                                
+                        </div>   
 
-                    
-                </div>
+                        <div id="resultadosLog" class="row margensuperior hidden">
+                            <div  class="col-lg-12">
+                                <h4 class="text-success">
+                                    Resultados Historicos
+                                </h4>
+                            </div>
+                            <div  class="col-lg-6 busqueda_log_error">
+                                <h5 class="text-danger">
+                                    La consulta realizada no arrojó resultados
+                                </h5>
+                            </div>
+                            <div  class="col-lg-6 busqueda_log_exitoso">
+                                <h5>
+                                    Uuid: &nbsp;
+                                    <span id="log_uuid" style="cursor:pointer;" 
+                                        class="text-primary h4"></span>
+                                </h5>
+                            </div>
+                            <div  class="col-lg-6 busqueda_log_exitoso">
+                                <h5>
+                                    Nombre Buscado: &nbsp;
+                                    <span id="log_nombre_buscado" style="cursor:pointer;" 
+                                        class="text-primary h4"></span>
+                                </h5>
+                            </div>
+                            <div  class="col-lg-6 busqueda_log_exitoso">
+                                <h5>
+                                    Porcentaje Buscado: &nbsp;
+                                    <span id="log_porcentaje_buscado" style="cursor:pointer;" 
+                                        class="text-primary h4"></span>
+                                </h5>
+                            </div>
+                            <div  class="col-lg-6 busqueda_log_exitoso">
+                                <h5>
+                                    Registros Encontrados: &nbsp;
+                                    <span id="log_registros_encontrados" style="cursor:pointer;" 
+                                        class="text-primary h4"></span>
+                                </h5>
+                            </div>
+                            <div  class="col-lg-6 busqueda_log_exitoso">
+                                <h5>
+                                    Estado ejecuci&oacute;n: &nbsp;
+                                    <span id="log_estado_ejecucion" style="cursor:pointer;" 
+                                        class="text-primary h4"></span>
+                                </h5>
+                            </div>
+                            <div  class="col-lg-6 busqueda_log_exitoso">
+                                <h5>
+                                    Fecha de Creaci&oacute;n: &nbsp;
+                                    <span id="log_created_at" style="cursor:pointer;" 
+                                        class="text-primary h4"></span>
+                                </h5>
+                            </div>
+                            <div  class="col-lg-12">
+                                <h4 class="text-success">
+                                    Detalles relacionados con el Uuid Buscado
+                                </h4>
+                                <button id="btnExportarLog" class="btn btn-info hidden">
+                                    Exportar
+                                </button>
+                            </div>
+                            <div  class="col-lg-12 margensuperior busqueda_log_exitoso">
+                                <table id="tablaResultadosLog" class="table table-bordered table-striped display"></table>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
             </div>
         </div>    
           
