@@ -43,7 +43,27 @@
     <body class="container-fluid">
         <div class="row margensuperior">
             <div class="col-lg-12">
-
+                <div class="row" style="margin-top:30px;">
+                    <div class="col-lg-8">
+                        &nbsp;
+                    </div>
+                    <div id="botonesIngreso" class="col-lg-4 text-right">
+                        <button type="button" id="btnIngreso" class="btn btn-primary">
+                            Ingresar
+                        </button>
+                    </div>
+                    <div id="botonesLogueado" class="col-lg-4 hidden">
+                        <h5>
+                            Bienvenido, <span id="emailUsuario" class="text-primary"></span>
+                            &nbsp;&nbsp;&nbsp;
+                            <span id="btnCerrarSesion"
+                                class="glyphicon glyphicon-remove text-danger" 
+                                aria-hidden="true" title="Cerrar Sesión"
+                                style="cursor:pointer;"></span>
+                        </h5>
+                        
+                    </div>
+                </div>
                 <ul class="nav nav-tabs">
                     <li class="active">
                         <a data-toggle="tab" href="#buscador">
@@ -200,5 +220,54 @@
             </div>
         </div>    
           
+        <!-- Modal -->
+        <div id="modalAuth" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Autenticaci&oacute;n</h4>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="row margensuperior">
+                            <div class="col-lg-12">
+                                <h5>
+                                    Ingrese sus credenciales de acceso
+                                </h5>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="input-group">
+                                    <span class="input-group-addon" style="cursor:help;" title="Email">
+                                        Email
+                                    </span>
+                                    <input type="email" class="form-control ingreso" id="ingreso_email" 
+                                        onblur="validarEmail(this)">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="input-group">
+                                    <span class="input-group-addon" style="cursor:help;" 
+                                        title="Contraseña">
+                                        Contraseña
+                                    </span>
+                                    <input type="password" class="form-control ingreso" 
+                                        id="ingreso_password" onblur="validarPassword(this)">
+                                </div>
+                            </div>
+                            <div class="col-lg-2 margensuperior">
+                                <button type="button" id="btnIngresarLogin" class="btn btn-primary">
+                                    Ingresar
+                                </button>                        
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </body>
 </html>
